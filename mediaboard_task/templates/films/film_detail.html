@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Film {{actor.name}
+{% endblock %}
+
+{% block header %}
+<h1>{{ film.title }}</h1>
+<p> Film {{film.title}} je {{film.rank}}. v pořadí! </p>
+<h2>Hrají:</h2>
+{% endblock %}
+
+{% block content %}
+{% if film.actors.all %}
+<ul>
+    {% for actor in film.actors.all %}
+    <li>
+        <a href="{% url 'films:actor_detail' actor.id %}">{{ actor.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>This actor has not been credited in any films yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+Herec/čka {{actor.name}}
+{% endblock %}
+
+{% block header %}
+<h1>{{ actor.name }}</h1>
+<h2> Filmy: </h2>
+{% endblock %}
+
+{% block content %}
+{% if actor.films.all %}
+<ul>
+    {% for film in actor.films.all %}
+    <li>
+        <a href="{% url 'films:film_detail' film.id %}">{{ film.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>This actor has not been credited in any films yet.</p>
+{% endif %}
+{% endblock %}
