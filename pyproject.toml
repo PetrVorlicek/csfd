@@ -1,0 +1,12 @@
+[project]
+name = "mediaboard"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "django>=5.2.1",
+    "pytest>=8.3.5",
+    "requests>=2.32.3",
+    "unidecode>=1.4.0",
+]
